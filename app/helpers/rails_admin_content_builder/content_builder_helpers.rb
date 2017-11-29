@@ -20,14 +20,14 @@ module RailsAdminContentBuilder
     #
     #   @content = all_contents_created
     def all_contents_created
-      set_content_builder.where(status: true)
+      set_content_builder.all
     end
 
     # Return specific contents created by slug
     #
     #   @content = find_content_created_by_slug('slug')
     def find_content_created_by_slug(slug)
-      set_content_builder.where(status: true, slug: slug).first
+      set_content_builder.where(slug: slug).first
     end
 
     # Return object RailsAdminContentBuilder::ContentBuilder

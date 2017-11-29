@@ -7,12 +7,13 @@ module RailsAdminContentBuilder
 
     friendly_id :title, use: :slugged
 
-    validates :title, :date_publish, :content_builder_category,
-              :written_by, presence: true
+    validates :title, presence: true
+
+    # :date_publish, :content_builder_category, :written_by,
 
     has_many :content_builder_images, inverse_of: :content_builder,
                                       dependent: :destroy
-    belongs_to :content_builder_category, inverse_of: :content_builders
+    # belongs_to :content_builder_category, inverse_of: :content_builders
 
     search_scope :search do
       attributes :title
